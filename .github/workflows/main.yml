@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>فلك — الخصوصية وشروط الاستخدام | Falak — Privacy & Terms</title>
+<meta name="description" content="سياسة الخصوصية وشروط استخدام تطبيق فلك — Falak Privacy Policy & Terms of Use" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-dark: #0f2420;
+    --slate: #12312a;
+    --slate-light: #1a3d34;
+    --chalk: #f0efe2;
+    --chalk-dim: #c9c8ba;
+    --chalk-faint: rgba(240, 239, 226, 0.35);
+    --wood: #a97155;
+    --wood-dark: #7c4f3a;
+    --wood-light: #c89272;
+    --accent: #e8c88a;
+    --accent-soft: #d4a862;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --max-width: 900px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Tajawal', 'Inter', system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(ellipse at top, #1a3d34 0%, #0f2420 60%, #0a1a17 100%);
+    color: var(--chalk);
+    line-height: 1.85;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Chalkboard dust texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(240, 239, 226, 0.03) 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, rgba(240, 239, 226, 0.02) 0%, transparent 30%),
+      radial-gradient(circle at 50% 90%, rgba(240, 239, 226, 0.025) 0%, transparent 35%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Wood frame top */
+  .wood-frame-top,
+  .wood-frame-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background:
+      linear-gradient(180deg, var(--wood-light) 0%, var(--wood) 40%, var(--wood-dark) 100%);
+    box-shadow: 0 4px 20px var(--shadow);
+    z-index: 100;
+  }
+  .wood-frame-top { top: 0; }
+  .wood-frame-bottom { bottom: 0; transform: scaleY(-1); }
+
+  .wood-frame-top::after,
+  .wood-frame-bottom::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0 40px, rgba(0,0,0,0.08) 40px 42px);
+    opacity: 0.5;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .orbit-decoration {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+
+  .orbit-decoration svg {
+    width: 100%;
+    height: 100%;
+    animation: slow-spin 60s linear infinite;
+  }
+
+  @keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--accent-soft), 0 0 40px rgba(232, 200, 138, 0.4);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px var(--accent-soft), 0 0 40px rgba(232, 200, 138, 0.4); }
+    50% { box-shadow: 0 0 30px var(--accent-soft), 0 0 60px rgba(232, 200, 138, 0.6); }
+  }
+
+  h1 {
+    font-family: 'Amiri', 'Tajawal', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: var(--chalk);
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  .tagline {
+    font-family: 'Caveat', 'Amiri', cursive;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--accent);
+    margin: 0 0 24px;
+    opacity: 0.95;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    color: var(--chalk-dim);
+    margin: 0;
+  }
+
+  /* Language Toggle */
+  .lang-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 30px auto 50px;
+    width: fit-content;
+    border: 1.5px solid var(--chalk-faint);
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .lang-toggle button {
+    background: transparent;
+    border: none;
+    color: var(--chalk-dim);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 28px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .lang-toggle button.active {
+    background: var(--accent);
+    color: var(--slate-dark);
+  }
+
+  .lang-toggle button:hover:not(.active) {
+    color: var(--chalk);
+    background: rgba(240, 239, 226, 0.08);
+  }
+
+  /* Content */
+  .lang-content { display: none; }
+  .lang-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--chalk-faint);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .toc::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    inset-inline-start: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    border-radius: 3px;
+  }
+
+  .toc h2 {
+    font-family: 'Caveat', 'Amiri', cursive;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+
+  .toc ol {
+    margin: 0;
+    padding-inline-start: 20px;
+    color: var(--chalk-dim);
+    font-size: 0.95rem;
+  }
+
+  .toc li { margin-bottom: 6px; }
+
+  .toc a {
+    color: var(--chalk-dim);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 46px;
+    scroll-margin-top: 60px;
+  }
+
+  h2.section-title {
+    font-family: 'Amiri', 'Tajawal', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: var(--chalk);
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--chalk-faint);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 700;
+  }
+
+  h2.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-soft);
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-family: 'Amiri', 'Tajawal', serif;
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin: 28px 0 12px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  p {
+    color: var(--chalk-dim);
+    margin: 0 0 14px;
+    font-size: 1rem;
+  }
+
+  ul, ol {
+    color: var(--chalk-dim);
+    padding-inline-start: 24px;
+    margin: 0 0 16px;
+  }
+
+  li { margin-bottom: 8px; }
+
+  strong {
+    color: var(--chalk);
+    font-weight: 700;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-soft);
+    transition: opacity 0.2s ease;
+  }
+
+  a:hover { opacity: 0.75; }
+
+  /* Callout / Notice */
+  .callout {
+    background: rgba(232, 200, 138, 0.08);
+    border-inline-start: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    color: var(--chalk);
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  [dir="ltr"] .callout {
+    border-radius: 12px 0 0 12px;
+  }
+
+  .callout::before {
+    content: "✎";
+    position: absolute;
+    top: -12px;
+    inset-inline-start: 14px;
+    background: var(--slate-dark);
+    padding: 0 8px;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  .callout p { color: var(--chalk); margin-bottom: 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* Info card grid for features */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .feature-card {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--chalk-faint);
+    border-radius: 14px;
+    padding: 18px 20px;
+    transition: all 0.25s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent-soft);
+    background: rgba(232, 200, 138, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .feature-card h4 {
+    font-family: 'Amiri', 'Tajawal', serif;
+    color: var(--accent);
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--chalk-dim);
+  }
+
+  /* Contact box */
+  .contact-box {
+    background: linear-gradient(135deg, rgba(232, 200, 138, 0.12) 0%, rgba(169, 113, 85, 0.12) 100%);
+    border: 1.5px solid var(--accent-soft);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .contact-box h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+  }
+
+  .contact-box a {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-top: 1px solid var(--chalk-faint);
+    margin-top: 60px;
+    color: var(--chalk-dim);
+    font-size: 0.85rem;
+  }
+
+  footer .orbit-quote {
+    font-family: 'Caveat', 'Amiri', cursive;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    position: fixed;
+    bottom: 40px;
+    inset-inline-end: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--slate-dark);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 6px 20px var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 90;
+    font-family: inherit;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px var(--shadow);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 60px 18px 100px; }
+    .toc { padding: 18px 20px; }
+    .lang-toggle button { padding: 8px 20px; font-size: 0.85rem; }
+    .back-to-top { bottom: 30px; inset-inline-end: 18px; width: 42px; height: 42px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; color: black; }
+    .lang-toggle, .back-to-top, .wood-frame-top, .wood-frame-bottom { display: none; }
+    .container { padding: 20px; }
+    a { color: #0066cc; }
+    .toc, .callout, .feature-card, .contact-box { border-color: #999; background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wood-frame-top"></div>
+<div class="wood-frame-bottom"></div>
+
+<div class="container">
+
+  <header>
+    <div class="orbit-decoration">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="60" rx="55" ry="22" stroke="#c9c8ba" stroke-width="1" opacity="0.5" transform="rotate(0 60 60)"/>
+        <ellipse cx="60" cy="60" rx="40" ry="16" stroke="#c9c8ba" stroke-width="1" opacity="0.6" transform="rotate(60 60 60)"/>
+        <ellipse cx="60" cy="60" rx="26" ry="10" stroke="#e8c88a" stroke-width="1" opacity="0.7" transform="rotate(120 60 60)"/>
+        <circle cx="115" cy="60" r="2.5" fill="#e8c88a"/>
+        <circle cx="40" cy="74" r="2" fill="#c9c8ba" opacity="0.8"/>
+        <circle cx="72" cy="38" r="2" fill="#c9c8ba" opacity="0.8"/>
+      </svg>
+      <div class="orbit-center"></div>
+    </div>
+    <h1>فلك · Falak</h1>
+    <p class="tagline">﴿كُلٌّ فِي فَلَكٍ يَسْبَحُونَ﴾</p>
+    <p class="subtitle" id="header-subtitle">سياسة الخصوصية وشروط الاستخدام — Privacy Policy & Terms of Use</p>
+  </header>
+
+  <div class="lang-toggle" role="tablist" aria-label="Language">
+    <button id="btn-ar" class="active" onclick="setLang('ar')" role="tab" aria-selected="true">العربية</button>
+    <button id="btn-en" onclick="setLang('en')" role="tab" aria-selected="false">English</button>
+  </div>
+
+  <!-- ================= ARABIC ================= -->
+  <main class="lang-content active" id="content-ar" dir="rtl" lang="ar">
+
+    <div class="toc">
+      <h2>المحتويات</h2>
+      <ol>
+        <li><a href="#ar-privacy">سياسة الخصوصية</a></li>
+        <li><a href="#ar-terms">شروط الاستخدام</a></li>
+        <li><a href="#ar-contact">التواصل</a></li>
+      </ol>
+    </div>
+
+    <div class="callout">
+      <p><strong>آخر تحديث:</strong> [التاريخ]</p>
+      <p><strong>المتحكم بالبيانات / المطور:</strong> [اسم المطور أو الشركة]</p>
+      <p><strong>البريد الإلكتروني للخصوصية:</strong> <a href="mailto:privacy@example.com">privacy@example.com</a></p>
+    </div>
+
+    <div class="callout">
+      <p><strong>تنبيه:</strong> هذه مسودة عامة وليست نصيحة قانونية. يُنصح بمراجعتها مع محامٍ مختص قبل نشرها في المتاجر.</p>
+    </div>
+
+    <!-- PRIVACY -->
+    <section id="ar-privacy">
+      <h2 class="section-title">سياسة الخصوصية</h2>
+
+      <h3>1. مقدمة</h3>
+      <p>صُمم تطبيق <strong>فلك (Falak)</strong> حول مبدأ الخصوصية المحلية أولاً: موادك — ملاحظاتك، مهامك، روابطك، ملفاتك، وتصنيفاتك المدارية — تبقى على جهازك افتراضيًا. لا إعلانات، ولا متتبعات، ولا بيع للبيانات.</p>
+
+      <h3>2. البيانات التي نعالجها</h3>
+
+      <p><strong>أ. المحتوى الذي تدخله:</strong> ملاحظات، مهام، أفكار، روابط، ملفات، مواعيد، وسوم، وتصنيفات. يُخزَّن هذا المحتوى محليًا على جهازك.</p>
+
+      <p><strong>ب. بيانات التشغيل المحلية:</strong> التصنيف المداري (Inner / Middle / Outer)، سبب التصنيف، الخطوة التالية المقترحة، إعدادات التطبيق، وسجل استخدام داخلي. تُعالج محليًا بواسطة المحرك الاستدلالي دون اتصال.</p>
+
+      <p><strong>ج. الذكاء الاصطناعي الاختياري:</strong> إذا فعّلت ربط <strong>Gemini</strong> أو <strong>Groq</strong> أو <strong>Ollama</strong>، فقد يُرسل المحتوى الذي تختاره إلى المزود.</p>
+      <ul>
+        <li><strong>Ollama المحلي:</strong> لا تغادر بياناتك جهازك/شبكتك المحلية إلا حسب إعداداتك.</li>
+        <li><strong>Gemini / Groq:</strong> مزودون خارجيون. قبل أي إرسال، يظهر لك <strong>إفصاح واضح قبل النقل</strong> يوضح: ما البيانات، إلى أين ستُرسل، لماذا، وكيف يمكنك سحب الموافقة. لا يتم الإرسال إلا بموافقتك الصريحة المستنيرة.</li>
+        <li>نحن لا نتحكم في سياسات هؤلاء المزودين، ويخضعون لشروطهم وسياسات الخصوصية الخاصة بهم.</li>
+      </ul>
+
+      <p><strong>د. الأذونات:</strong> قد يطلب التطبيق إذن التخزين/الملفات لاختيار الملفات، والإنترنت عند تفعيل الذكاء الاصطناعي الخارجي، والإشعارات إن فعّلت التنبيهات. لا نطلب أذونات غير ضرورية.</p>
+
+      <p><strong>هـ. ما لا نجمعه:</strong> لا نجمع الموقع الجغرافي، جهات الاتصال، الكاميرا، الميكروفون، معرّفات الإعلان، سجل التصفح، أو بيانات التتبع. لا نستخدم أدوات تحليل أو إعلانات افتراضيًا.</p>
+
+      <h3>3. كيف نستخدم البيانات</h3>
+      <ul>
+        <li>تصنيف موادك ووضعها في المدارات المناسبة.</li>
+        <li>عرضها في <strong>Orbit Canvas</strong> أو <strong>List View</strong>.</li>
+        <li>تنفيذ الأوامر والبحث والتصفية محليًا.</li>
+        <li>تحسين الاستقرار والأداء داخل جهازك.</li>
+        <li>لا نستخدم محتواك للإعلانات أو لتدريب نماذجنا.</li>
+      </ul>
+
+      <h3>4. الذكاء الاصطناعي الاختياري</h3>
+      <ul>
+        <li>لا يتم تفعيل أي مزود AI خارجي تلقائيًا.</li>
+        <li>قبل النقل: إفصاح + موافقة صريحة.</li>
+        <li>يمكنك رفض الإرسال، أو استخدام الوضع المحلي فقط، أو سحب الموافقة لاحقًا.</li>
+        <li>لا ترسل بيانات حساسة (كلمات مرور، بيانات بنكية، معلومات صحية) إلى مزودين خارجيين.</li>
+        <li>قد تتم معالجة البيانات خارج بلدك حسب المزود.</li>
+      </ul>
+
+      <h3>5. التخزين والأمان</h3>
+      <ul>
+        <li>التخزين افتراضيًا محلي على جهازك.</li>
+        <li>قد يستفيد التطبيق من تشفير نظام التشغيل.</li>
+        <li>إذا فعّلت النسخ الاحتياطي على مستوى النظام، فقد تشمل النسخة بيانات فلك.</li>
+        <li>لا يمكن ضمان أمان 100%، لكننا نقلل جمع البيانات إلى الحد الأدنى.</li>
+      </ul>
+
+      <h3>6. المشاركة والإفصاح</h3>
+      <p>لا نبيع بياناتك. لا نشاركها إلا:</p>
+      <ol>
+        <li>بموافقتك الصريحة،</li>
+        <li>للامتثال لطلب قانوني ملزم،</li>
+        <li>مع مزودي الذكاء الاصطناعي الذين تختارهم أنت.</li>
+      </ol>
+      <p>لا نشارك بياناتك مع معلنين أو وسطاء بيانات.</p>
+
+      <h3>7. الاحتفاظ والحذف</h3>
+      <ul>
+        <li>عندما تحذف مادة من التطبيق، تُحذف محليًا.</li>
+        <li>قد تبقى نسخ في النسخ الاحتياطية للنظام حتى تُستبدل أو تُحذف.</li>
+        <li>يمكنك حذف كل بياناتك عبر إلغاء تثبيت التطبيق أو خيار الحذف داخل الإعدادات إن وُجد.</li>
+        <li>لحذف أي بيانات شاركتها مع مزود AI خارجي، راجع سياسات ذلك المزود.</li>
+      </ul>
+
+      <h3>8. حقوقك</h3>
+      <p>حسب موقعك، قد يكون لك حق الوصول، التصحيح، الحذف، سحب الموافقة، الاعتراض، تقييد المعالجة، ونقل البيانات.</p>
+      <ul>
+        <li><strong>GDPR / UK GDPR:</strong> لك حقوق متقدمة، والأساس القانوني غالبًا الموافقة للـ AI، والمصلحة المشروعة/تنفيذ الخدمة للتشغيل المحلي.</li>
+        <li><strong>CCPA/CPRA:</strong> لا نبيع أو نشارك بياناتك الشخصية بالمعنى المعروف.</li>
+      </ul>
+      <p>للمطالبة بحقوقك: <a href="mailto:privacy@example.com">privacy@example.com</a>.</p>
+
+      <h3>9. الأطفال</h3>
+      <p>التطبيق غير موجه لمن دون 13 عامًا (أو 16 في بعض الدول). لا نجمع بيانات الأطفال عن قصد. إذا اكتشفت أن طفلًا أدخل بيانات، تواصل معنا لحذفها.</p>
+
+      <h3>10. التغييرات</h3>
+      <p>قد نحدّث هذه السياسة. سننشر التاريخ الجديد. التغييرات الجوهرية قد تُعلن داخل التطبيق. استمرارك في الاستخدام يعني قبولك للتحديث.</p>
+    </section>
+
+    <!-- TERMS -->
+    <section id="ar-terms">
+      <h2 class="section-title">شروط الاستخدام</h2>
+
+      <h3>1. القبول</h3>
+      <p>باستخدامك فلك، فإنك توافق على هذه الشروط وسياسة الخصوصية.</p>
+
+      <h3>2. الترخيص</h3>
+      <p>نمنحك ترخيصًا شخصيًا، غير حصري، غير قابل للتحويل، لاستخدام التطبيق وفق هذه الشروط. لا يجوز إعادة بيع التطبيق أو تعديله أو هندسته عكسيًا إلا بما يسمح به القانون.</p>
+
+      <h3>3. المحتوى</h3>
+      <ul>
+        <li>أنت تملك محتواك.</li>
+        <li>أنت المسؤول عن قانونية المحتوى الذي تدخله.</li>
+        <li>لا ندّعي ملكية ملاحظاتك أو ملفاتك.</li>
+      </ul>
+
+      <h3>4. الاستخدام المقبول</h3>
+      <p>يُمنع استخدام فلك في:</p>
+      <ul>
+        <li>انتهاك حقوق الآخرين،</li>
+        <li>نشر محتوى غير قانوني أو ضار،</li>
+        <li>محاولة اختراق التطبيق أو تعطيله،</li>
+        <li>إساءة استخدام مزودي الذكاء الاصطناعي.</li>
+      </ul>
+
+      <h3>5. الذكاء الاصطناعي</h3>
+      <p>قد تكون مخرجات AI غير دقيقة أو غير مكتملة. راجعها دائمًا. لا تعتمد عليها في قرارات حرجة (طبية، قانونية، مالية) دون مختص.</p>
+
+      <h3>6. خدمات الطرف الثالث</h3>
+      <p>Gemini وGroq وOllama وغيرها لها شروطها وسياساتها. لا نتحمل مسؤولية تعطلها أو تغييرها أو ممارساتها.</p>
+
+      <h3>7. إخلاء الضمانات</h3>
+      <p>يُقدَّم التطبيق «كما هو» و«حسب التوفر». لا نضمن عدم الأخطاء أو انقطاع الخدمة أو دقة التصنيف.</p>
+
+      <h3>8. حدود المسؤولية</h3>
+      <p>إلى أقصى حد يسمح به القانون، لا نتحمل مسؤولية أي أضرار غير مباشرة أو تبعية أو فقدان بيانات. مسؤوليتنا الإجمالية لا تتجاوز ما دفعته لاستخدام التطبيق إن وُجد.</p>
+
+      <h3>9. التعديلات</h3>
+      <p>قد نحدّث الشروط. استمرار الاستخدام بعد النشر يعني القبول.</p>
+
+      <h3>10. القانون الحاكم</h3>
+      <p>تخضع هذه الشروط لقوانين [الدولة/الولاية]، دون اعتبار لقواعد تنازع القوانين.</p>
+    </section>
+
+    <section id="ar-contact">
+      <div class="contact-box">
+        <h3>التواصل</h3>
+        <p>لأي سؤال أو طلب خصوصية:</p>
+        <p><a href="mailto:privacy@example.com">privacy@example.com</a> · <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= ENGLISH ================= -->
+  <main class="lang-content" id="content-en" dir="ltr" lang="en">
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#en-privacy">Privacy Policy</a></li>
+        <li><a href="#en-terms">Terms of Use</a></li>
+        <li><a href="#en-contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="callout">
+      <p><strong>Last updated:</strong> [Date]</p>
+      <p><strong>Developer / Data Controller:</strong> [Name]</p>
+      <p><strong>Privacy Contact:</strong> <a href="mailto:privacy@example.com">privacy@example.com</a></p>
+    </div>
+
+    <div class="callout">
+      <p><strong>Notice:</strong> This is a general draft and not legal advice. Have it reviewed by a qualified attorney before publishing.</p>
+    </div>
+
+    <section id="en-privacy">
+      <h2 class="section-title">Privacy Policy</h2>
+
+      <h3>1. Introduction</h3>
+      <p><strong>Falak</strong> is built local-first. Your notes, tasks, links, files, and orbital classifications stay on your device by default. No ads, no trackers, no selling of personal data.</p>
+
+      <h3>2. Data We Process</h3>
+      <ul>
+        <li><strong>Your content:</strong> notes, tasks, ideas, URLs, files, dates, tags, classifications — stored locally.</li>
+        <li><strong>Local operational data:</strong> orbit assignment, reason, suggested next step, settings, in-app usage — processed offline by the heuristic engine.</li>
+        <li><strong>Optional AI:</strong> If you connect Gemini, Groq, or Ollama, selected content may be sent to that provider. Ollama local stays on your device/network. Gemini/Groq are external. We show a clear pre-transfer disclosure and require explicit informed consent before sending. We do not control their policies.</li>
+        <li><strong>Permissions:</strong> storage/files for file picking, internet for external AI, notifications if enabled. No unnecessary permissions.</li>
+        <li><strong>What we do not collect:</strong> location, contacts, camera, microphone, ad IDs, browsing history, tracking data, analytics, or ads by default.</li>
+      </ul>
+
+      <h3>3. How We Use Data</h3>
+      <p>To classify your materials into orbits, display them in Canvas or List View, enable search/filtering, and improve local stability. We do not use your content for ads or to train our models.</p>
+
+      <h3>4. Optional AI</h3>
+      <ul>
+        <li>No external AI is enabled automatically.</li>
+        <li>Before transfer: disclosure + explicit consent.</li>
+        <li>You can refuse, stay local-only, or revoke consent.</li>
+        <li>Do not send sensitive data to external providers.</li>
+        <li>Data may be processed in other countries depending on the provider.</li>
+      </ul>
+
+      <h3>5. Storage & Security</h3>
+      <ul>
+        <li>Local by default.</li>
+        <li>May use OS-level encryption.</li>
+        <li>System backups may include Falak data if enabled.</li>
+        <li>No system is 100% secure, but we minimize data collection.</li>
+      </ul>
+
+      <h3>6. Sharing</h3>
+      <p>We do not sell your data. We share only:</p>
+      <ol>
+        <li>with your consent,</li>
+        <li>to comply with legal obligations,</li>
+        <li>with AI providers you choose.</li>
+      </ol>
+      <p>No sharing with advertisers or data brokers.</p>
+
+      <h3>7. Retention & Deletion</h3>
+      <ul>
+        <li>Deleting an item removes it locally.</li>
+        <li>Backups may retain copies until overwritten.</li>
+        <li>Uninstalling or using in-app deletion removes local data.</li>
+        <li>For data sent to external AI providers, contact that provider.</li>
+      </ul>
+
+      <h3>8. Your Rights</h3>
+      <p>Depending on your location: access, correction, deletion, withdrawal of consent, objection, restriction, portability. GDPR/UK GDPR and CCPA/CPRA rights apply where relevant. Contact <a href="mailto:privacy@example.com">privacy@example.com</a>.</p>
+
+      <h3>9. Children</h3>
+      <p>Not intended for children under 13 (or 16 where applicable). We do not knowingly collect children's data.</p>
+
+      <h3>10. Changes</h3>
+      <p>We may update this policy. Continued use means acceptance.</p>
+    </section>
+
+    <section id="en-terms">
+      <h2 class="section-title">Terms of Use</h2>
+
+      <h3>1. Acceptance</h3>
+      <p>By using Falak, you agree to these terms and the Privacy Policy.</p>
+
+      <h3>2. License</h3>
+      <p>Personal, non-exclusive, non-transferable. No reverse engineering except as allowed by law.</p>
+
+      <h3>3. Content</h3>
+      <p>You own your content and are responsible for its legality.</p>
+
+      <h3>4. Acceptable Use</h3>
+      <p>No illegal, harmful, infringing, or disruptive use.</p>
+
+      <h3>5. AI</h3>
+      <p>Outputs may be inaccurate. Review them. Do not rely on them for critical decisions.</p>
+
+      <h3>6. Third-Party Services</h3>
+      <p>Gemini, Groq, Ollama, etc., have their own terms. We are not responsible for them.</p>
+
+      <h3>7. Disclaimer</h3>
+      <p>Provided "as is" and "as available." No warranty of accuracy or uninterrupted service.</p>
+
+      <h3>8. Limitation of Liability</h3>
+      <p>To the maximum extent permitted by law, we are not liable for indirect or consequential damages.</p>
+
+      <h3>9. Changes</h3>
+      <p>We may update these terms. Continued use means acceptance.</p>
+
+      <h3>10. Governing Law</h3>
+      <p>[Country/State].</p>
+    </section>
+
+    <section id="en-contact">
+      <div class="contact-box">
+        <h3>Contact</h3>
+        <p>For any questions or privacy requests:</p>
+        <p><a href="mailto:privacy@example.com">privacy@example.com</a> · <a href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="orbit-quote">﴿كُلٌّ فِي فَلَكٍ يَسْبَحُونَ﴾</span>
+    <p>© <span id="year"></span> Falak · فلك — All rights reserved.</p>
+  </footer>
+
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const body = document.body;
+  const contentAr = document.getElementById('content-ar');
+  const contentEn = document.getElementById('content-en');
+  const btnAr = document.getElementById('btn-ar');
+  const btnEn = document.getElementById('btn-en');
+  const subtitle = document.getElementById('header-subtitle');
+
+  function setLang(lang) {
+    if (lang === 'ar') {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+      contentAr.classList.add('active');
+      contentEn.classList.remove('active');
+      btnAr.classList.add('active');
+      btnEn.classList.remove('active');
+      btnAr.setAttribute('aria-selected', 'true');
+      btnEn.setAttribute('aria-selected', 'false');
+      subtitle.textContent = 'سياسة الخصوصية وشروط الاستخدام — Privacy Policy & Terms of Use';
+    } else {
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
+      contentEn.classList.add('active');
+      contentAr.classList.remove('active');
+      btnEn.classList.add('active');
+      btnAr.classList.remove('active');
+      btnEn.setAttribute('aria-selected', 'true');
+      btnAr.setAttribute('aria-selected', 'false');
+      subtitle.textContent = 'Privacy Policy & Terms of Use — سياسة الخصوصية وشروط الاستخدام';
+    }
+    try { localStorage.setItem('falak-lang', lang); } catch (e) {}
+  }
+
+  // Restore saved language preference
+  try {
+    const saved = localStorage.getItem('falak-lang');
+    if (saved === 'en' || saved === 'ar') setLang(saved);
+  } catch (e) {}
+
+  // Back to top visibility
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) backToTop.classList.add('visible');
+    else backToTop.classList.remove('visible');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
